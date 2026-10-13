@@ -52,7 +52,7 @@ const CONFIG = {
   },
 
   // Fase 2
-  whatsapp: "522713594102",
+  whatsapp: "52 271 179 2250",
   sheetsUrl: "",
   maxInvitados: 10,
 
