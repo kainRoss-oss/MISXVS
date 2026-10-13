@@ -2,37 +2,37 @@
    CONFIGURACIÓN — cambia aquí los datos de la invitación
    ========================================================= */
 const CONFIG = {
-  quinceanera: { nombre: "Jocelyn", apellidos: "Ramírez Sampieri" },
+  quinceanera: { nombre: "Alitzel Yoselin", apellidos: "Ramírez Sampieri" },
   frase: "Hay noches que parecen sacadas de un cuento. Esta es la mía, y quiero vivirla contigo.",
 
   // Fecha y hora de inicio (zona horaria de México, -06:00)
-  fechaEvento: "2026-12-29T17:00:00-06:00",
-  fechaTexto: "Martes 29 · Diciembre · 2026",
-  fechaLimiteConfirmacion: "15 de diciembre de 2026",
+  fechaEvento: "2026-12-19T19:00:00-06:00",
+  fechaTexto: "Sábado 19 · Diciembre · 2026",
+  fechaLimiteConfirmacion: "27 de noviembre de 2026",
 
-  papas: ["Feliciano Ramírez Rosas", "Montserrat Sampieri Sánchez"],
-  padrinos: ["Arturo Méndez Lara", "Patricia Ortiz Delgado"],
+  papas: ["José Feliciano Ramírez Rosas", "Monserrat Sampieri Fernández"],
+  padrinos: ["José Manuel Ramírez Rosas", "Isabel del Carmen Sánchez Utrera"],
 
   misa: {
     titulo: "Misa de acción de gracias",
-    lugar: "Parroquia de San José",
+    lugar: "Catedral de la Inmaculada Concepción",
     direccion: "Córdoba, Veracruz",
-    hora: "5:00 PM",
+    hora: "7:00 PM",
     mapsUrl: "",           // link de "Ver en Maps" (vacío = se busca por nombre y dirección)
     destino: "",           // coordenadas "18.88,-96.93" o dirección para "Cómo llegar" (vacío = nombre + dirección)
   },
   recepcion: {
     titulo: "Recepción",
-    lugar: "[Nombre del salón]",
-    direccion: "[Dirección del salón]",
-    hora: "8:00 PM",
+    lugar: "Salón Flamingos Majestic",
+    direccion: "Boulevard Córdoba-Fortín #4013, 94549 Córdoba, Ver. (frente a Nuevo Córdoba)",
+    hora: "8:30 PM",
     mapsUrl: "https://share.google/mjdgCr57w8oF8qNJ2",
-    destino: "",           // PENDIENTE: dirección o coordenadas del salón
+    destino: "Salón Flamingos Majestic, Boulevard Córdoba-Fortín 4013, 94549 Córdoba, Veracruz",
   },
 
   itinerario: [
-    { hora: "5:00 PM", evento: "Misa de acción de gracias" },
-    { hora: "8:00 PM", evento: "Recepción y bienvenida" },
+    { hora: "7:00 PM", evento: "Misa de acción de gracias" },
+    { hora: "8:30 PM", evento: "Recepción y bienvenida" },
     { hora: "9:00 PM", evento: "Entrada y vals" },
     { hora: "9:45 PM", evento: "Cena" },
     { hora: "11:00 PM", evento: "Baile sorpresa y fiesta" },
@@ -40,15 +40,15 @@ const CONFIG = {
 
   vestimenta: {
     tipo: "Formal",
-    detalle: "Vestido largo para ellas, traje para ellos.",
-    colorReservado: "#1FA3A6",
-    textoReservado: "El turquesa está reservado para la quinceañera",
+    detalle: "",           // vacío = no se muestra
+    colorReservado: "#2E8B57",
+    textoReservado: "El verde está reservado para la quinceañera",
   },
 
   regalos: {
-    texto: "Si deseas obsequiarme algo, habrá lluvia de sobres el día del evento.",
+    texto: "Si deseas obsequiarme algo, aquí está mi mesa de regalos.",
     tienda: "Liverpool",
-    evento: "[00000000]",
+    evento: "Número de evento: en trámite",
   },
 
   // Fase 2
@@ -56,7 +56,7 @@ const CONFIG = {
   sheetsUrl: "",
   maxInvitados: 10,
 
-  musica: "assets/musica.mp3",
+  musica: "ARABIAN.mp3",     // en la raíz del repo; respeta mayúsculas
 };
 
 /* =========================================================
@@ -87,6 +87,7 @@ function render() {
   document.querySelectorAll("[data-c]").forEach((el) => {
     const v = get(el.dataset.c);
     if (v != null) el.textContent = v;
+    el.hidden = v === "";
   });
   // Listas con salto de línea: <el data-lines="papas">
   document.querySelectorAll("[data-lines]").forEach((el) => {

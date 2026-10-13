@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Mis XV Años · Jocelyn</title>
-  <meta name="description" content="Te invito a celebrar mis XV años. Martes 29 de diciembre de 2026.">
-  <meta property="og:title" content="Mis XV Años · Jocelyn">
-  <meta property="og:description" content="Martes 29 de diciembre de 2026 · Confirma tu asistencia">
+  <title>Mis XV Años · Alitzel Yoselin</title>
+  <meta name="description" content="Te invito a celebrar mis XV años. Sábado 19 de diciembre de 2026.">
+  <meta property="og:title" content="Mis XV Años · Alitzel Yoselin">
+  <meta property="og:description" content="Sábado 19 de diciembre de 2026 · Confirma tu asistencia">
   <meta name="theme-color" content="#0B0828">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,27 +54,20 @@
 <audio id="bgm" loop preload="auto"></audio>
 
 <!-- ================= PORTADA ================= -->
-<div id="cover" class="cover sky">
-  <div class="stars" aria-hidden="true">
-    <span style="top:5%;left:6%"></span><span style="top:2%;left:18%"></span><span style="top:7%;left:29%"></span>
-    <span style="top:3%;left:41%"></span><span style="top:6%;left:59%"></span><span style="top:2%;left:67%"></span>
-    <span style="top:10%;left:77%"></span><span style="top:15%;left:90%"></span><span style="top:18%;left:10%"></span>
-    <span style="top:27%;left:5%"></span><span style="top:25%;left:95%"></span><span style="top:13%;left:23%"></span>
-    <span style="top:11%;left:51%"></span><span style="top:33%;left:88%"></span><span style="top:38%;left:8%"></span>
-    <svg class="sp" style="top:4%;left:33%"><use href="#spark"/></svg>
-    <svg class="sp d2" style="top:18%;left:74%"><use href="#spark"/></svg>
-    <svg class="sp d3" style="top:24%;left:12%"><use href="#spark"/></svg>
-  </div>
-  <svg class="moon" viewBox="0 0 60 60" aria-hidden="true"><path d="M40 4 A26 26 0 1 0 40 56 A21 21 0 1 1 40 4 Z"/></svg>
-
-  <div class="cover-content">
-    <div class="arch-frame">
-      <div class="kicker">Mis XV Años</div>
-      <h1 class="name" data-c="quinceanera.nombre">Jocelyn</h1>
-      <div class="surname" data-c="quinceanera.apellidos">Ramírez Sampieri</div>
-      <div class="divider" aria-hidden="true"><span></span><svg><use href="#spark"/></svg><span></span></div>
-      <div class="date" data-c="fechaTexto">Martes 29 · Diciembre · 2026</div>
+<div id="cover" class="cover" role="dialog" aria-modal="true" aria-labelledby="cover-title">
+  <div class="popup">
+    <div class="stars" aria-hidden="true">
+      <span style="top:6%;left:14%"></span><span style="top:4%;left:82%"></span><span style="top:16%;left:6%"></span>
+      <span style="top:12%;left:92%"></span><span style="top:30%;left:4%"></span><span style="top:26%;left:95%"></span>
+      <svg class="sp" style="top:3%;left:30%"><use href="#spark"/></svg>
+      <svg class="sp d2" style="top:9%;left:68%"><use href="#spark"/></svg>
     </div>
+    <div class="kicker">Has recibido una invitación</div>
+    <div class="popup-xv">Mis XV Años</div>
+    <h1 id="cover-title" class="name" data-c="quinceanera.nombre">Alitzel Yoselin</h1>
+    <div class="surname" data-c="quinceanera.apellidos">Ramírez Sampieri</div>
+    <div class="divider" aria-hidden="true"><span></span><svg><use href="#spark"/></svg><span></span></div>
+    <div class="date" data-c="fechaTexto">Sábado 19 · Diciembre · 2026</div>
 
     <button id="open-invitation" class="open-btn" type="button">
       <svg class="lamp lamp-lg" viewBox="0 0 200 130" aria-hidden="true">
@@ -88,12 +81,10 @@
         <circle cx="100" cy="32" r="5" fill="#D9B45A"/>
         <path d="M80 96 L120 96 L128 110 L72 110 Z" fill="#B8913D"/>
       </svg>
-      <span class="open-label">Abrir invitación</span>
-      <span class="open-hint">Toca la lámpara · se activará la música</span>
+      <span class="open-label">Toca la lámpara</span>
+      <span class="open-hint">para leer tu invitación · con música</span>
     </button>
   </div>
-
-  <svg class="palace" viewBox="0 0 390 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#palace"/></svg>
 </div>
 
 <!-- ================= INVITACIÓN ================= -->
@@ -113,7 +104,7 @@
 
     <div class="hero-content">
       <div class="kicker">Mis XV Años</div>
-      <h2 class="name name-xl" data-c="quinceanera.nombre">Jocelyn</h2>
+      <h2 class="name name-xl" data-c="quinceanera.nombre">Alitzel Yoselin</h2>
       <div class="surname" data-c="quinceanera.apellidos">Ramírez Sampieri</div>
       <svg class="lamp lamp-sm" viewBox="0 0 200 130" aria-hidden="true">
         <defs><radialGradient id="glowB" cx="50%" cy="55%" r="50%"><stop offset="0%" stop-color="#FFD98A" stop-opacity="0.5"/><stop offset="100%" stop-color="#FFD98A" stop-opacity="0"/></radialGradient></defs>
@@ -125,7 +116,7 @@
         <circle cx="100" cy="32" r="5" fill="#D9B45A"/>
         <path d="M80 96 L120 96 L128 110 L72 110 Z" fill="#B8913D"/>
       </svg>
-      <div class="date" data-c="fechaTexto">Martes 29 · Diciembre · 2026</div>
+      <div class="date" data-c="fechaTexto">Sábado 19 · Diciembre · 2026</div>
       <div class="countdown" role="timer" aria-label="Cuenta regresiva">
         <div><b id="cd-d">0</b><small>días</small></div>
         <div><b id="cd-h">00</b><small>horas</small></div>
@@ -140,7 +131,7 @@
   <section class="block reveal">
     <div class="divider" aria-hidden="true"><span></span><svg><use href="#spark"/></svg><span></span></div>
     <p class="quote" data-c="frase"></p>
-    <div class="kicker" data-c="quinceanera.nombre">Jocelyn</div>
+    <div class="kicker" data-c="quinceanera.nombre">Alitzel Yoselin</div>
   </section>
 
   <!-- Papás y padrinos -->
@@ -208,7 +199,7 @@
     <p class="text" data-c="regalos.texto"></p>
     <div class="gift-box">
       <div class="gift-store" data-c="regalos.tienda"></div>
-      <div class="text">Evento No. <span data-c="regalos.evento"></span></div>
+      <div class="text" data-c="regalos.evento"></div>
     </div>
   </section>
 
@@ -230,7 +221,7 @@
   <!-- Cierre -->
   <footer class="closing">
     <p class="quote">Te espero para vivir juntos<br>esta noche mágica</p>
-    <div class="name name-md" data-c="quinceanera.nombre">Jocelyn</div>
+    <div class="name name-md" data-c="quinceanera.nombre">Alitzel Yoselin</div>
     <svg class="palace palace-dark" viewBox="0 0 390 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#palace"/></svg>
   </footer>
 </main>
