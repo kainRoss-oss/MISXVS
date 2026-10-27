@@ -226,6 +226,29 @@
   </footer>
 </main>
 
+<!-- Pop-up de confirmación -->
+<div id="rsvp-modal" class="rsvp-modal" hidden>
+  <div class="rsvp-backdrop" data-close></div>
+  <form id="rsvp-form" class="rsvp-card" role="dialog" aria-modal="true" aria-labelledby="rsvp-title" novalidate>
+    <button type="button" class="rsvp-x" data-close aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="kicker">Confirma tu asistencia</div>
+    <h2 id="rsvp-title" class="title">¡Qué alegría que vengas!</h2>
+    <label class="field">
+      <span>Tu nombre o el de tu familia</span>
+      <input id="rsvp-nombre" type="text" autocomplete="name" placeholder="Ej. Familia López" maxlength="80">
+    </label>
+    <p id="rsvp-error" class="field-error" hidden>Escribe tu nombre para continuar</p>
+    <label id="rsvp-personas-wrap" class="field">
+      <span>¿Cuántas personas asistirán?</span>
+      <select id="rsvp-personas"></select>
+    </label>
+    <button id="rsvp-enviar" type="submit" class="btn btn-gold btn-big">Confirmar por WhatsApp</button>
+    <button type="button" class="btn-text" data-close>Cancelar</button>
+  </form>
+</div>
+
 <script src="app.js"></script>
 </body>
 </html>

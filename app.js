@@ -6,7 +6,7 @@ const CONFIG = {
   frase: "Hay noches que parecen sacadas de un cuento. Esta es la mía, y quiero vivirla contigo.",
 
   // Fecha y hora de inicio (zona horaria de México, -06:00)
-  fechaEvento: "2026-12-19T19:00:00-06:00",
+  fechaEvento: "2026-12-19T16:00:00-06:00",
   fechaTexto: "Sábado 19 · Diciembre · 2026",
   fechaLimiteConfirmacion: "27 de noviembre de 2026",
 
@@ -17,7 +17,7 @@ const CONFIG = {
     titulo: "Misa de acción de gracias",
     lugar: "Catedral de la Inmaculada Concepción",
     direccion: "Córdoba, Veracruz",
-    hora: "7:00 PM",
+    hora: "4:00 PM",
     mapsUrl: "",           // link de "Ver en Maps" (vacío = se busca por nombre y dirección)
     destino: "",           // coordenadas "18.88,-96.93" o dirección para "Cómo llegar" (vacío = nombre + dirección)
   },
@@ -25,17 +25,14 @@ const CONFIG = {
     titulo: "Recepción",
     lugar: "Salón Flamingos Majestic",
     direccion: "Boulevard Córdoba-Fortín #4013, 94549 Córdoba, Ver. (frente a Nuevo Córdoba)",
-    hora: "8:30 PM",
-    mapsUrl: "https://share.google/mjdgCr57w8oF8qNJ2",
-    destino: "Salón Flamingos Majestic, Boulevard Córdoba-Fortín 4013, 94549 Córdoba, Veracruz",
+    hora: "7:00 PM",
+    mapsUrl: "https://maps.app.goo.gl/7HrgaUz6pFigko2M7",
+    destino: "",           // vacío = "Cómo llegar" usa el mismo link de mapsUrl
   },
 
   itinerario: [
-    { hora: "7:00 PM", evento: "Misa de acción de gracias" },
-    { hora: "8:30 PM", evento: "Recepción y bienvenida" },
-    { hora: "9:00 PM", evento: "Entrada y vals" },
-    { hora: "9:45 PM", evento: "Cena" },
-    { hora: "11:00 PM", evento: "Baile sorpresa y fiesta" },
+    { hora: "4:00 PM", evento: "Misa de acción de gracias" },
+    { hora: "7:00 PM", evento: "Recepción y bienvenida" },
   ],
 
   vestimenta: {
@@ -48,12 +45,11 @@ const CONFIG = {
   regalos: {
     texto: "Si deseas obsequiarme algo, aquí está mi mesa de regalos.",
     tienda: "Liverpool",
-    evento: "Número de evento: en trámite",
+    evento: "Número de evento: 60065051",
   },
 
-  // Fase 2
-  whatsapp: "52 271 179 2250",
-  sheetsUrl: "",
+  // Confirmación por WhatsApp
+  whatsapp: "522713594102",  // 52 + 10 dígitos, sin espacios
   maxInvitados: 10,
 
   musica: "ARABIAN.mp3",     // en la raíz del repo; respeta mayúsculas
@@ -179,11 +175,64 @@ function setupReveal() {
   els.forEach((e) => io.observe(e));
 }
 
-/* ---------- Confirmación (se conecta en la Fase 2) ---------- */
+/* ---------- Confirmación por WhatsApp ---------- */
+function mensajeWhatsApp(asiste, nombre, personas) {
+  if (!asiste) {
+    return `Hola, soy ${nombre}. Lamentablemente no podremos asistir. ¡Muchas felicidades a ${CONFIG.quinceanera.nombre} en este día tan especial!`;
+  }
+  const cuantos = personas === 1 ? "asistiré 1 persona" : `asistiremos ${personas} personas`;
+  return `Hola, soy ${nombre}. Nos alegra mucho acompañarlos en este día tan especial. Te confirmo que ${cuantos}.`;
+}
+
 function setupRSVP() {
+  const modal = $("#rsvp-modal");
+  const form = $("#rsvp-form");
+  const nombre = $("#rsvp-nombre");
+  const personasWrap = $("#rsvp-personas-wrap");
+  const personas = $("#rsvp-personas");
+  const titulo = $("#rsvp-title");
+  const enviar = $("#rsvp-enviar");
+  const error = $("#rsvp-error");
+  let asiste = true;
+
+  personas.innerHTML = "";
+  for (let i = 1; i <= CONFIG.maxInvitados; i++) {
+    const o = document.createElement("option");
+    o.value = i;
+    o.textContent = i === 1 ? "1 persona" : `${i} personas`;
+    personas.appendChild(o);
+  }
+
+  function abrir(si) {
+    asiste = si;
+    titulo.textContent = si ? "¡Qué alegría que vengas!" : "Te extrañaremos";
+    personasWrap.hidden = !si;
+    enviar.textContent = si ? "Confirmar por WhatsApp" : "Avisar por WhatsApp";
+    error.hidden = true;
+    modal.hidden = false;
+    document.body.classList.add("modal-open");
+    setTimeout(() => nombre.focus(), 50);
+  }
+  function cerrar() {
+    modal.hidden = true;
+    document.body.classList.remove("modal-open");
+  }
+
   document.querySelectorAll("[data-rsvp]").forEach((b) =>
-    b.addEventListener("click", () => console.log("RSVP:", b.dataset.rsvp, "— pendiente Fase 2"))
+    b.addEventListener("click", () => abrir(b.dataset.rsvp === "si"))
   );
+  modal.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", cerrar));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) cerrar(); });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const n = nombre.value.trim();
+    if (!n) { error.hidden = false; nombre.focus(); return; }
+    const texto = mensajeWhatsApp(asiste, n, Number(personas.value));
+    const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(texto)}`;
+    cerrar();
+    window.location.href = url; // misma pestaña: iPhone bloquea pestañas nuevas
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {

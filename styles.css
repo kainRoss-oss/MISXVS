@@ -333,3 +333,38 @@ main {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ===== Pop-up de confirmación ===== */
+body.modal-open { overflow: hidden; }
+.rsvp-modal { position: fixed; inset: 0; z-index: 70; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.rsvp-modal[hidden] { display: none; }
+.rsvp-backdrop { position: absolute; inset: 0; background: rgba(6, 4, 26, .7); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.rsvp-card {
+  position: relative;
+  width: min(360px, 100%);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  border: 1.5px solid rgba(232, 200, 119, .75);
+  border-radius: 24px;
+  padding: 36px 22px 18px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  background: linear-gradient(180deg, #2C175A 0%, var(--bg-alt) 100%);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .55);
+  animation: popIn .45s cubic-bezier(.2, .9, .3, 1.2) both;
+}
+.rsvp-x { position: absolute; top: 8px; right: 8px; width: 44px; height: 44px; border: none; background: none; color: var(--gold-soft); cursor: pointer; padding: 10px; }
+.rsvp-x svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.field { width: 100%; display: flex; flex-direction: column; gap: 6px; text-align: left; }
+.field[hidden] { display: none; }
+.field span { font-size: 17px; color: var(--ivory-soft); }
+.field input, .field select {
+  width: 100%; min-height: 48px; padding: 0 14px;
+  border-radius: 12px; border: 1px solid rgba(232, 200, 119, .6);
+  background: rgba(11, 8, 40, .55); color: var(--ivory);
+  font-family: var(--f-body); font-size: 18px;
+}
+.field input::placeholder { color: rgba(233, 221, 196, .5); }
+.field input:focus, .field select:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+.field select option { color: #120D36; }
+.field-error { margin: -4px 0 0; width: 100%; font-size: 16px; color: #FFB4A8; text-align: left; }
+.btn-text { background: none; border: none; color: var(--ivory-soft); font-family: var(--f-body); font-size: 17px; min-height: 44px; cursor: pointer; text-decoration: underline; }
