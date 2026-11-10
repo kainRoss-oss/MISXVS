@@ -56,21 +56,40 @@
 <!-- ================= PORTADA ================= -->
 <div id="cover" class="cover" role="dialog" aria-modal="true" aria-labelledby="cover-title">
   <div class="popup">
-    <div class="stars" aria-hidden="true">
-      <span style="top:6%;left:14%"></span><span style="top:4%;left:82%"></span><span style="top:16%;left:6%"></span>
-      <span style="top:12%;left:92%"></span><span style="top:30%;left:4%"></span><span style="top:26%;left:95%"></span>
-      <svg class="sp" style="top:3%;left:30%"><use href="#spark"/></svg>
-      <svg class="sp d2" style="top:9%;left:68%"><use href="#spark"/></svg>
-    </div>
-    <div class="kicker">Has recibido una invitación</div>
-    <div class="popup-xv">Mis XV Años</div>
-    <h1 id="cover-title" class="name" data-c="quinceanera.nombre">Alitzel Yoselin</h1>
-    <div class="surname" data-c="quinceanera.apellidos">Ramírez Sampieri</div>
-    <div class="divider" aria-hidden="true"><span></span><svg><use href="#spark"/></svg><span></span></div>
-    <div class="date" data-c="fechaTexto">Sábado 19 · Diciembre · 2026</div>
-
-    <button id="open-invitation" class="open-btn" type="button">
-      <svg class="lamp lamp-lg" viewBox="0 0 200 130" aria-hidden="true">
+    <svg class="popup-frame" viewBox="0 0 340 608" aria-hidden="true">
+      <defs>
+        <linearGradient id="pfGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F6E3A6"/><stop offset="45%" stop-color="#D4B062"/><stop offset="100%" stop-color="#A9853A"/></linearGradient>
+        <linearGradient id="pfPurple" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0B0828"/><stop offset="50%" stop-color="#24165A"/><stop offset="100%" stop-color="#5A3192"/></linearGradient>
+        <pattern id="pfLattice" width="26" height="26" patternUnits="userSpaceOnUse">
+          <rect width="26" height="26" fill="#0B2249"/>
+          <g fill="none" stroke="#D4B062" stroke-width="1.1">
+            <path d="M13 3 L16 10 L23 13 L16 16 L13 23 L10 16 L3 13 L10 10 Z"/><rect x="7" y="7" width="12" height="12"/>
+            <path d="M0 13 H3 M23 13 H26 M13 0 V3 M13 23 V26"/>
+            <circle cx="0" cy="0" r="3.2"/><circle cx="26" cy="0" r="3.2"/><circle cx="0" cy="26" r="3.2"/><circle cx="26" cy="26" r="3.2"/>
+          </g>
+        </pattern>
+        <pattern id="pfCurtain" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="7" height="14" fill="#fff" opacity="0.03"/></pattern>
+      </defs>
+      <path d="M6 600 L6 222 C6 140 70 100 122 72 C148 58 162 38 170 6 C178 38 192 58 218 72 C270 100 334 140 334 222 L334 600 Z" fill="url(#pfLattice)" stroke="url(#pfGold)" stroke-width="4"/>
+      <path d="M14 592 L14 224 C14 148 76 108 126 80 C150 66 163 48 170 22 C177 48 190 66 214 80 C264 108 326 148 326 224 L326 592 Z" fill="none" stroke="#D4B062" stroke-width="1" opacity="0.8"/>
+      <path d="M38 582 L38 250 C38 214 58 200 80 194 C94 176 98 154 118 140 C140 126 158 112 170 82 C182 112 200 126 222 140 C242 154 246 176 260 194 C282 200 302 214 302 250 L302 582 Z" fill="url(#pfPurple)"/>
+      <path d="M38 582 L38 250 C38 214 58 200 80 194 C94 176 98 154 118 140 C140 126 158 112 170 82 C182 112 200 126 222 140 C242 154 246 176 260 194 C282 200 302 214 302 250 L302 582 Z" fill="url(#pfCurtain)" stroke="url(#pfGold)" stroke-width="3"/>
+      <path d="M46 574 L46 252 C46 222 64 210 84 204 C98 186 102 164 122 150 C142 136 160 124 170 98 C180 124 198 136 218 150 C238 164 242 186 256 204 C276 210 294 222 294 252 L294 574 Z" fill="none" stroke="#D4B062" stroke-width="0.8" opacity="0.6"/>
+      <g fill="#F6DFA0">
+        <path class="twk" d="M170 118 L172 124 L178 126 L172 128 L170 134 L168 128 L162 126 L168 124 Z"/>
+        <path class="twk d2" d="M128 176 L129.2 180 L133 181 L129.2 182 L128 186 L126.8 182 L123 181 L126.8 180 Z"/>
+        <path class="twk d3" d="M212 168 L213.2 172 L217 173 L213.2 174 L212 178 L210.8 174 L207 173 L210.8 172 Z"/>
+      </g>
+    </svg>
+    <div class="popup-content">
+      <div class="popup-kicker">Has recibido una invitación</div>
+      <div class="popup-xv">Mis XV Años</div>
+      <h1 id="cover-title" class="name" data-c="quinceanera.nombre">Alitzel Yoselin</h1>
+      <div class="surname" data-c="quinceanera.apellidos">Ramírez Sampieri</div>
+      <div class="divider" aria-hidden="true"><span></span><svg><use href="#spark"/></svg><span></span></div>
+      <div class="date" data-c="fechaTexto">Sábado 19 · Diciembre · 2026</div>
+      <button id="open-invitation" class="open-btn" type="button">
+        <svg class="lamp lamp-lg" viewBox="0 0 200 130" aria-hidden="true">
         <defs><radialGradient id="glowA" cx="50%" cy="55%" r="50%"><stop offset="0%" stop-color="#FFD98A" stop-opacity="0.55"/><stop offset="100%" stop-color="#FFD98A" stop-opacity="0"/></radialGradient></defs>
         <ellipse class="glow" cx="100" cy="72" rx="98" ry="58" fill="url(#glowA)"/>
         <path class="flame" d="M190 34 Q182 22 190 8 Q199 22 190 34 Z" fill="#FFE3A3"/>
@@ -81,9 +100,10 @@
         <circle cx="100" cy="32" r="5" fill="#D9B45A"/>
         <path d="M80 96 L120 96 L128 110 L72 110 Z" fill="#B8913D"/>
       </svg>
-      <span class="open-label">Toca la lámpara</span>
-      <span class="open-hint">para leer tu invitación · con música</span>
-    </button>
+        <span class="open-label">Toca la lámpara</span>
+        <span class="open-hint">para leer tu invitación · con música</span>
+      </button>
+    </div>
   </div>
 </div>
 
@@ -208,12 +228,15 @@
     <div class="arch-card rsvp">
       <div class="kicker">Confirma tu asistencia</div>
       <h2 class="title title-lg">¿Nos acompañas?</h2>
-      <p class="text">Por favor confirma antes del<br><span data-c="fechaLimiteConfirmacion"></span></p>
       <button class="btn btn-gold btn-big" type="button" data-rsvp="si">Asistiré</button>
       <button class="btn btn-line" type="button" data-rsvp="no">No podré asistir</button>
       <div class="wa-note">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.5 7.8L3 21l1.2-4.5A9 9 0 1 1 21 12z"/></svg>
         Al confirmar se abrirá WhatsApp
+      </div>
+      <div class="deadline">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>
+        <span>Confirma antes del <span data-c="fechaLimiteConfirmacion"></span></span>
       </div>
     </div>
   </section>

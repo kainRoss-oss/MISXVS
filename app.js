@@ -8,7 +8,7 @@ const CONFIG = {
   // Fecha y hora de inicio (zona horaria de México, -06:00)
   fechaEvento: "2026-12-19T16:00:00-06:00",
   fechaTexto: "Sábado 19 · Diciembre · 2026",
-  fechaLimiteConfirmacion: "27 de noviembre de 2026",
+  fechaLimiteConfirmacion: "1° de diciembre",
 
   papas: ["José Feliciano Ramírez Rosas", "Monserrat Sampieri Fernández"],
   padrinos: ["José Manuel Ramírez Rosas", "Isabel del Carmen Sánchez Utrera"],
@@ -38,8 +38,8 @@ const CONFIG = {
   vestimenta: {
     tipo: "Formal",
     detalle: "",           // vacío = no se muestra
-    colorReservado: "#2E8B57",
-    textoReservado: "El verde está reservado para la quinceañera",
+    colorReservado: "#A8E4D8",
+    textoReservado: "El azul menta está reservado para la quinceañera",
   },
 
   regalos: {
@@ -49,7 +49,7 @@ const CONFIG = {
   },
 
   // Confirmación por WhatsApp
-  whatsapp: "5212711792250",  // 52 + 10 dígitos, sin espacios
+  whatsapp: "522713594102",  // 52 + 10 dígitos, sin espacios
   maxInvitados: 10,
 
   musica: "ARABIAN.mp3",     // en la raíz del repo; respeta mayúsculas

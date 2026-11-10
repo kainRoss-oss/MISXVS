@@ -146,31 +146,42 @@ a { color: var(--gold-soft); }
 }
 body.opened .cover { opacity: 0; visibility: hidden; pointer-events: none; }
 body.opened .popup { transform: scale(1.06); }
+
+/* El pop-up escala completo (marco + textos) según el ancho y alto de la pantalla */
 .popup {
   position: relative;
-  overflow: hidden;
-  width: min(340px, 100%);
-  max-height: calc(100dvh - 40px);
-  border: 1.5px solid rgba(232, 200, 119, .75);
-  border-radius: 170px 170px 24px 24px;
-  padding: clamp(64px, 11vh, 84px) 20px clamp(20px, 4vh, 30px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(6px, 1.4vh, 10px);
-  text-align: center;
-  background: linear-gradient(180deg, #0B0828 0%, #24165A 60%, var(--purple) 100%);
-  box-shadow: 0 0 0 6px rgba(11, 8, 40, .5), 0 24px 60px rgba(0, 0, 0, .55), 0 0 60px rgba(217, 180, 90, .18);
+  width: min(92vw, 420px, calc((100vh - 32px) * 340 / 608));
+  width: min(92vw, 420px, calc((100dvh - 32px) * 340 / 608));
+  aspect-ratio: 340 / 608;
+  container-type: inline-size;
   animation: popIn .7s cubic-bezier(.2, .9, .3, 1.2) both;
   transition: transform .9s ease;
 }
-.popup > *:not(.stars) { position: relative; }
-.popup > .kicker { font-size: 11px; letter-spacing: 2px; }
-.popup-xv { font-family: var(--f-caps); font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--ivory-soft); }
-.popup .name { font-size: clamp(34px, 6vh, 42px); }
-.popup .date { font-size: 13px; letter-spacing: 1px; }
-.popup .lamp-lg { width: clamp(140px, 22vh, 190px); height: auto; aspect-ratio: 200 / 130; }
-.popup .open-btn { margin-top: clamp(4px, 1.5vh, 12px); }
+.popup-frame {
+  position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .6)) drop-shadow(0 0 30px rgba(212, 176, 98, .18));
+}
+.popup-frame .twk { animation: twinkle 2.6s ease-in-out infinite; }
+.popup-frame .twk.d2 { animation-delay: .9s; }
+.popup-frame .twk.d3 { animation-delay: 1.7s; }
+/* Zona segura: debajo de los hombros del arco interior */
+.popup-content {
+  position: absolute;
+  left: 14%; right: 14%; top: 34%; bottom: 5.5%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; gap: 1.9cqw;
+  text-align: center;
+}
+.popup-kicker { font-family: var(--f-caps); text-transform: uppercase; color: var(--gold-soft); font-size: 10px; font-size: 2.9cqw; letter-spacing: .2em; }
+.popup-xv { font-family: var(--f-caps); text-transform: uppercase; color: var(--ivory-soft); font-size: 13px; font-size: 3.8cqw; letter-spacing: .22em; }
+.popup .name { font-size: 32px; font-size: 9.4cqw; }
+.popup .surname { font-size: 19px; font-size: 5.6cqw; }
+.popup .divider span { width: 36px; width: 10.5cqw; }
+.popup .date { font-size: 12px; font-size: 3.5cqw; letter-spacing: .08em; }
+.popup .open-btn { gap: 4px; gap: 1.4cqw; margin-top: 2px; }
+.popup .lamp-lg { width: 150px; width: 44cqw; height: auto; aspect-ratio: 200 / 130; }
+.popup .open-label { font-size: 14px; font-size: 4.1cqw; letter-spacing: .2em; }
+.popup .open-hint { font-size: 15px; font-size: 4.4cqw; }
 @keyframes popIn { from { opacity: 0; transform: translateY(20px) scale(.92); } to { opacity: 1; transform: none; } }
 .open-btn {
   background: none;
@@ -368,3 +379,12 @@ body.modal-open { overflow: hidden; }
 .field select option { color: #120D36; }
 .field-error { margin: -4px 0 0; width: 100%; font-size: 16px; color: #FFB4A8; text-align: left; }
 .btn-text { background: none; border: none; color: var(--ivory-soft); font-family: var(--f-body); font-size: 17px; min-height: 44px; cursor: pointer; text-decoration: underline; }
+
+/* ===== Fecha límite de confirmación ===== */
+.deadline {
+  width: 100%; margin-top: 4px; padding: 12px 14px;
+  border-radius: 14px; border: 1px dashed rgba(232, 200, 119, .6); background: rgba(11, 8, 40, .4);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--f-caps); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-light); text-align: center;
+}
+.deadline svg { flex-shrink: 0; width: 20px; height: 20px; fill: none; stroke: var(--gold-soft); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
