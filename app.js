@@ -49,7 +49,7 @@ const CONFIG = {
   },
 
   // Confirmación por WhatsApp
-  whatsapp: "522713594102",  // 52 + 10 dígitos, sin espacios
+  whatsapp: "522711792250",  // 52 + 10 dígitos, sin espacios
   maxInvitados: 10,
 
   musica: "ARABIAN.mp3",     // en la raíz del repo; respeta mayúsculas
