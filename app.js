@@ -25,21 +25,21 @@ const CONFIG = {
     titulo: "Recepción",
     lugar: "Salón Flamingos Majestic",
     direccion: "Boulevard Córdoba-Fortín #4013, 94549 Córdoba, Ver. (frente a Nuevo Córdoba)",
-    hora: "7:00 PM",
+    hora: "6:00 PM",
     mapsUrl: "https://maps.app.goo.gl/7HrgaUz6pFigko2M7",
     destino: "",           // vacío = "Cómo llegar" usa el mismo link de mapsUrl
   },
 
   itinerario: [
     { hora: "4:00 PM", evento: "Misa de acción de gracias" },
-    { hora: "7:00 PM", evento: "Recepción y bienvenida" },
+    { hora: "6:00 PM", evento: "Recepción y bienvenida" },
   ],
 
   vestimenta: {
     tipo: "Formal",
     detalle: "",           // vacío = no se muestra
-    colorReservado: "#A8E4D8",
-    textoReservado: "El azul menta está reservado para la quinceañera",
+    coloresReservados: ["#00A86B", "#30D5C8"],   // verde jade, azul turquesa
+    textoReservado: "El verde jade y el azul turquesa están reservados para la quinceañera",
   },
 
   regalos: {
@@ -114,7 +114,14 @@ function render() {
     ul.appendChild(li);
   });
   // Color reservado
-  $("#color-reservado").style.background = CONFIG.vestimenta.colorReservado;
+  const sw = $("#color-reservado");
+  sw.innerHTML = "";
+  CONFIG.vestimenta.coloresReservados.forEach((c) => {
+    const dot = document.createElement("span");
+    dot.className = "swatch";
+    dot.style.background = c;
+    sw.appendChild(dot);
+  });
   document.title = `Mis XV Años · ${CONFIG.quinceanera.nombre}`;
 }
 

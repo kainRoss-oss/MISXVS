@@ -388,3 +388,5 @@ body.modal-open { overflow: hidden; }
   font-family: var(--f-caps); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-light); text-align: center;
 }
 .deadline svg { flex-shrink: 0; width: 20px; height: 20px; fill: none; stroke: var(--gold-soft); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.swatches { display: flex; flex-shrink: 0; }
+.swatches .swatch + .swatch { margin-left: -8px; }
