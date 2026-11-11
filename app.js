@@ -33,6 +33,9 @@ const CONFIG = {
   itinerario: [
     { hora: "4:00 PM", evento: "Misa de acción de gracias" },
     { hora: "6:00 PM", evento: "Recepción y bienvenida" },
+    { hora: "7:00 PM", evento: "Vals" },
+    { hora: "8:00 PM", evento: "Cena" },
+    { hora: "9:00 PM", evento: "Baile" },
   ],
 
   vestimenta: {
